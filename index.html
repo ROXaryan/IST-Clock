@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+    
+    
+    
+    <div class="parent" id="mybg">
+        
+        <div class="son">
+           
+            <div class="first"></div>
+            <div class="second"></div>
+            <div class="third"></div>
+            <div class="forth"></div>
+            <div class="grandson">
+                
+                <div class="clock">
+                    <span id="hrs">00</span>
+                    <span>:</span>
+                    <span id="min">00</span>
+                    <span>:</span>
+                    <span id="sec">00</span>
+                </div>
+                <div class="btn-cont">
+                    <button id="mybtn" class="btn">Change BG</button>
+                </div>
+        </div>
+    </div>
+
+    <script>
+ let hrs = document.getElementById("hrs")
+        let min = document.getElementById("min")
+        let sec = document.getElementById("sec")
+
+        setInterval(()=>{
+            let currentTime = new Date()
+
+hrs.innerHTML = (currentTime.getHours()<10?"0":"") + currentTime.getHours();
+min.innerHTML = (currentTime.getMinutes()<10?"0":"") + currentTime.getMinutes();
+sec.innerHTML = (currentTime.getSeconds()<10?"0":"") + currentTime.getSeconds();
+        },1000)
+
+        const bgImageDiv = document.getElementById('mybg');
+
+var image = ["url(cyber.png)","url(vi.jpg)","url(cyber2.png)","url(cyber3.jpeg)"];
+
+var i = 0;
+
+document.getElementById('mybtn').addEventListener('click', function(){
+    if(i<=image.length-2){
+    i = ++i;
+    }
+    else{
+        i = 0;
+    }
+    bgImageDiv.style.backgroundImage = image[i]
+});
+
+    </script>
+
+
+</body>
+</html>
